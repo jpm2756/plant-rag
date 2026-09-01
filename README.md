@@ -113,8 +113,9 @@ docker compose up -d --build postgres qdrant api ui grafana   # or: make up
 docker compose run --rm ingest                                # or: make ingest
 ```
 
-Ingestion takes ~45–70 min on a small VM for the full corpus (USDA is rate-limited and every
-response is cached to `data/`). To try the stack quickly, ingest a slice first:
+Ingestion takes ~45–70 min for the full corpus (USDA is rate-limited and every response is
+cached to `data/`), plus embedding time for the ~18k chunks — that stage is CPU-bound and
+scales with cores. To try the stack quickly, ingest a slice first:
 
 ```bash
 INGEST_LIMIT=150 docker compose run --rm ingest
@@ -189,7 +190,8 @@ The source `doc_id` is the relevant item.
 `make eval-retrieval` scores five configurations with hit-rate@5, MRR@5 and a species-level
 hit rate (a different section of the right species is still useful):
 
-<!-- RETRIEVAL_RESULTS -->
+> **Not yet run on the full corpus** — `make ground-truth && make eval-retrieval` fills this in
+> (`data/retrieval_eval.md`). `hybrid_rerank` is the shipped default pending those numbers.
 
 Results are written to `data/retrieval_eval.md` / `.json`, including hit-rate broken down by
 query archetype (name lookups vs trait filters vs site recommendations behave very
@@ -206,7 +208,8 @@ mechanical check of whether the *target* species was actually cited, and cost & 
   "constraint not covered" and insufficient-data branches.
 - **v3** — answer + attribute comparison table + caveats section.
 
-<!-- LLM_RESULTS -->
+> **Not yet run** — `make eval-llm` fills this in (`data/llm_eval.md`). `v2` is the shipped
+> default pending those numbers.
 
 Results in `data/llm_eval.md` / `.json`; the winner is set via `PROMPT_VARIANT`.
 
