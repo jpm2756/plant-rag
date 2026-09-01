@@ -1,0 +1,443 @@
+{
+  "uid": "plantrag-monitoring",
+  "title": "PlantRAG monitoring",
+  "tags": [
+    "plantrag",
+    "llm"
+  ],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "editable": true,
+  "panels": [
+    {
+      "id": 1,
+      "title": "1 \u00b7 Feedback over time (\ud83d\udc4d / \ud83d\udc4e per hour)",
+      "type": "timeseries",
+      "description": "Raw user feedback volume collected from the Streamlit UI.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "plantrag-pg"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "plantrag-pg"
+          },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT date_trunc('hour', created_at) AS time,\n       sum(CASE WHEN rating = 1 THEN 1 ELSE 0 END)  AS \"thumbs up\",\n       sum(CASE WHEN rating = -1 THEN 1 ELSE 0 END) AS \"thumbs down\"\nFROM feedback\nWHERE $__timeFilter(created_at)\nGROUP BY 1 ORDER BY 1",
+          "refId": "A",
+          "sql": {
+            "columns": [],
+            "groupBy": []
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "2 \u00b7 Positive feedback rate",
+      "type": "stat",
+      "description": "Share of thumbs-up among all feedback.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "plantrag-pg"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "plantrag-pg"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT round(100.0 * avg(CASE WHEN rating = 1 THEN 1 ELSE 0 END), 1) AS \"positive rate\"\nFROM feedback WHERE $__timeFilter(created_at)",
+          "refId": "A",
+          "sql": {
+            "columns": [],
+            "groupBy": []
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "orange",
+                "value": 50
+              },
+              {
+                "color": "green",
+                "value": 75
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "background",
+        "graphMode": "none"
+      }
+    },
+    {
+      "id": 3,
+      "title": "3 \u00b7 Answers & insufficient-data rate",
+      "type": "stat",
+      "description": "Volume plus how often the app correctly refuses for lack of grounding.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "plantrag-pg"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "plantrag-pg"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT count(*) AS \"answers\",\n       round(100.0 * avg(CASE WHEN insufficient THEN 1 ELSE 0 END), 1) AS \"insufficient %\",\n       round(avg(n_results), 1) AS \"avg docs used\"\nFROM conversations WHERE $__timeFilter(created_at)",
+          "refId": "A",
+          "sql": {
+            "columns": [],
+            "groupBy": []
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "textMode": "auto"
+      }
+    },
+    {
+      "id": 4,
+      "title": "4 \u00b7 Latency by stage (p50 / p95, ms)",
+      "type": "timeseries",
+      "description": "Where wall-clock time goes: rewriting, retrieval, cross-encoder re-ranking, generation.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "plantrag-pg"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "plantrag-pg"
+          },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT date_trunc('minute', created_at) AS time,\n       percentile_cont(0.5) WITHIN GROUP (ORDER BY latency_rewrite_ms)  AS \"p50 rewrite\",\n       percentile_cont(0.5) WITHIN GROUP (ORDER BY latency_retrieve_ms) AS \"p50 retrieve\",\n       percentile_cont(0.5) WITHIN GROUP (ORDER BY latency_rerank_ms)   AS \"p50 rerank\",\n       percentile_cont(0.5) WITHIN GROUP (ORDER BY latency_generate_ms) AS \"p50 generate\",\n       percentile_cont(0.95) WITHIN GROUP (ORDER BY latency_ms)         AS \"p95 total\"\nFROM conversations\nWHERE $__timeFilter(created_at)\nGROUP BY 1 ORDER BY 1",
+          "refId": "A",
+          "sql": {
+            "columns": [],
+            "groupBy": []
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 5,
+      "title": "5 \u00b7 Token cost per hour and cumulative spend (USD)",
+      "type": "timeseries",
+      "description": "OpenAI spend derived from logged prompt/completion tokens.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "plantrag-pg"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "plantrag-pg"
+          },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT time, \"hourly cost\",\n       sum(\"hourly cost\") OVER (ORDER BY time) AS \"cumulative cost\"\nFROM (\n  SELECT date_trunc('hour', created_at) AS time, sum(cost_usd) AS \"hourly cost\"\n  FROM conversations WHERE $__timeFilter(created_at)\n  GROUP BY 1\n) t ORDER BY time",
+          "refId": "A",
+          "sql": {
+            "columns": [],
+            "groupBy": []
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 6,
+      "title": "6 \u00b7 Live LLM-judge scores (relevance / groundedness)",
+      "type": "barchart",
+      "description": "Distribution of judge scores for answers scored in production (judge toggle in the UI).",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "plantrag-pg"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "plantrag-pg"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT coalesce(judge_relevance, 0)::text AS score,\n       count(*) FILTER (WHERE judge_relevance IS NOT NULL)    AS relevance,\n       count(*) FILTER (WHERE judge_groundedness IS NOT NULL) AS groundedness\nFROM conversations\nWHERE $__timeFilter(created_at) AND judge_relevance IS NOT NULL\nGROUP BY 1 ORDER BY 1",
+          "refId": "A",
+          "sql": {
+            "columns": [],
+            "groupBy": []
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "options": {
+        "xTickLabelRotation": 0,
+        "showValue": "auto",
+        "legend": {
+          "showLegend": true,
+          "placement": "bottom"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "title": "7 \u00b7 Query archetypes and retrieval mode mix",
+      "type": "piechart",
+      "description": "What people actually ask, from the rewriter's archetype classification.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "plantrag-pg"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "plantrag-pg"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT archetype, count(*) AS questions\nFROM conversations\nWHERE $__timeFilter(created_at) AND archetype IS NOT NULL\nGROUP BY 1 ORDER BY 2 DESC",
+          "refId": "A",
+          "sql": {
+            "columns": [],
+            "groupBy": []
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "showLegend": true,
+          "placement": "right"
+        },
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        }
+      }
+    },
+    {
+      "id": 8,
+      "title": "8 \u00b7 Most cited species",
+      "type": "table",
+      "description": "Which species the assistant actually grounds answers in.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "plantrag-pg"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 24
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "plantrag-pg"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT symbol AS \"USDA symbol\", count(*) AS citations\nFROM conversations, unnest(cited_symbols) AS symbol\nWHERE $__timeFilter(created_at)\nGROUP BY 1 ORDER BY 2 DESC LIMIT 20",
+          "refId": "A",
+          "sql": {
+            "columns": [],
+            "groupBy": []
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 9,
+      "title": "9 \u00b7 Unanswered or downvoted questions",
+      "type": "table",
+      "description": "The improvement backlog: questions the knowledge base could not ground, plus thumbs-down.",
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "plantrag-pg"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 16,
+        "x": 8,
+        "y": 24
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "plantrag-pg"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT c.created_at AS \"time\", c.question, c.archetype,\n       c.insufficient AS \"insufficient\", f.rating, f.comment\nFROM conversations c\nLEFT JOIN feedback f ON f.conversation_id = c.id\nWHERE $__timeFilter(c.created_at) AND (c.insufficient OR f.rating = -1)\nORDER BY c.created_at DESC LIMIT 50",
+          "refId": "A",
+          "sql": {
+            "columns": [],
+            "groupBy": []
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "options": {}
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.git/
+data/cache/
+data/pdf/
+notebooks/
+.pytest_cache/
+.ruff_cache/
+*.log
