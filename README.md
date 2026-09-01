@@ -113,7 +113,7 @@ docker compose up -d --build postgres qdrant api ui grafana   # or: make up
 docker compose run --rm ingest                                # or: make ingest
 ```
 
-Ingestion takes ~45–70 min for the full corpus (USDA is rate-limited and every response is
+Ingestion takes ~10-15 min for the full corpus (USDA is rate-limited and every response is
 cached to `data/`), plus embedding time for the ~18k chunks — that stage is CPU-bound and
 scales with cores. To try the stack quickly, ingest a slice first:
 
