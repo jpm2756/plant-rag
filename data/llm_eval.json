@@ -1,0 +1,38 @@
+{
+  "results": [
+    {
+      "variant": "v1",
+      "n": 30,
+      "relevance": 5,
+      "groundedness": 5,
+      "citation_validity": 1.767,
+      "hallucination_rate": 0,
+      "cited_target_species": 0.8,
+      "p50_latency_ms": 5992,
+      "avg_cost_usd": 0.000295
+    },
+    {
+      "variant": "v2",
+      "n": 30,
+      "relevance": 4.6,
+      "groundedness": 4.6,
+      "citation_validity": 1.967,
+      "hallucination_rate": 0.1,
+      "cited_target_species": 0.767,
+      "p50_latency_ms": 5933,
+      "avg_cost_usd": 0.000335
+    },
+    {
+      "variant": "v3",
+      "n": 30,
+      "relevance": 4.733,
+      "groundedness": 4.733,
+      "citation_validity": 1.167,
+      "hallucination_rate": 0.067,
+      "cited_target_species": 0.767,
+      "p50_latency_ms": 6348,
+      "avg_cost_usd": 0.000372
+    }
+  ],
+  "best_variant": "v1"
+}

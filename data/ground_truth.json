@@ -1,0 +1,1668 @@
+[
+  {
+    "question": "What is the growth form and shape of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "65436::growth",
+    "species_id": 65436,
+    "section": "growth"
+  },
+  {
+    "question": "When does dwarf bilberry typically bloom?",
+    "archetype": "name_lookup",
+    "doc_id": "65436::growth",
+    "species_id": 65436,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and height of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "25715::growth",
+    "species_id": 25715,
+    "section": "growth"
+  },
+  {
+    "question": "What are the growth characteristics of grain sorghum?",
+    "archetype": "name_lookup",
+    "doc_id": "25715::growth",
+    "species_id": 25715,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and shape of the plant?",
+    "archetype": "trait_filter",
+    "doc_id": "72285::growth",
+    "species_id": 72285,
+    "section": "growth"
+  },
+  {
+    "question": "When does yerba mansa typically bloom?",
+    "archetype": "name_lookup",
+    "doc_id": "72285::growth",
+    "species_id": 72285,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and orientation of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "17481::growth",
+    "species_id": 17481,
+    "section": "growth"
+  },
+  {
+    "question": "What is the bloom period for Mariposa sedge?",
+    "archetype": "name_lookup",
+    "doc_id": "17481::growth",
+    "species_id": 17481,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and orientation of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "19046::growth",
+    "species_id": 19046,
+    "section": "growth"
+  },
+  {
+    "question": "When does dwarf spikerush typically bloom?",
+    "archetype": "name_lookup",
+    "doc_id": "19046::growth",
+    "species_id": 19046,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and orientation of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "20888::growth",
+    "species_id": 20888,
+    "section": "growth"
+  },
+  {
+    "question": "What is the bloom period for California brome?",
+    "archetype": "name_lookup",
+    "doc_id": "20888::growth",
+    "species_id": 20888,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth rate and lifespan of this tree?",
+    "archetype": "trait_filter",
+    "doc_id": "70219::growth",
+    "species_id": 70219,
+    "section": "growth"
+  },
+  {
+    "question": "What are the characteristics of scarlet oak's foliage?",
+    "archetype": "name_lookup",
+    "doc_id": "70219::growth",
+    "species_id": 70219,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and height of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "18088::growth",
+    "species_id": 18088,
+    "section": "growth"
+  },
+  {
+    "question": "What is the bloom period for thicket sedge?",
+    "archetype": "name_lookup",
+    "doc_id": "18088::growth",
+    "species_id": 18088,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and height of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "90712::growth",
+    "species_id": 90712,
+    "section": "growth"
+  },
+  {
+    "question": "What is the bloom period for Stansbury cliffrose?",
+    "archetype": "name_lookup",
+    "doc_id": "90712::growth",
+    "species_id": 90712,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and orientation of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "37480::growth",
+    "species_id": 37480,
+    "section": "growth"
+  },
+  {
+    "question": "When does the Appalachian blazing star bloom?",
+    "archetype": "name_lookup",
+    "doc_id": "37480::growth",
+    "species_id": 37480,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and rate of the plant?",
+    "archetype": "trait_filter",
+    "doc_id": "16268::growth",
+    "species_id": 16268,
+    "section": "growth"
+  },
+  {
+    "question": "What is the bloom period for sweetflag?",
+    "archetype": "name_lookup",
+    "doc_id": "16268::growth",
+    "species_id": 16268,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and height of this grass species?",
+    "archetype": "trait_filter",
+    "doc_id": "20425::growth",
+    "species_id": 20425,
+    "section": "growth"
+  },
+  {
+    "question": "What are the active growth periods for pendantgrass?",
+    "archetype": "name_lookup",
+    "doc_id": "20425::growth",
+    "species_id": 20425,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and orientation of this clover?",
+    "archetype": "trait_filter",
+    "doc_id": "79629::growth",
+    "species_id": 79629,
+    "section": "growth"
+  },
+  {
+    "question": "What is the bloom period for Korean clover?",
+    "archetype": "name_lookup",
+    "doc_id": "79629::growth",
+    "species_id": 79629,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and shape of the plant?",
+    "archetype": "trait_filter",
+    "doc_id": "76591::growth",
+    "species_id": 76591,
+    "section": "growth"
+  },
+  {
+    "question": "What is the bloom period for jojoba?",
+    "archetype": "name_lookup",
+    "doc_id": "76591::growth",
+    "species_id": 76591,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and height of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "18772::growth",
+    "species_id": 18772,
+    "section": "growth"
+  },
+  {
+    "question": "When does marsh flatsedge typically bloom?",
+    "archetype": "name_lookup",
+    "doc_id": "18772::growth",
+    "species_id": 18772,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth rate and lifespan of the Caucasian pincushion flower?",
+    "archetype": "trait_filter",
+    "doc_id": "43068::growth",
+    "species_id": 43068,
+    "section": "growth"
+  },
+  {
+    "question": "When does the Caucasian pincushion flower bloom?",
+    "archetype": "name_lookup",
+    "doc_id": "43068::growth",
+    "species_id": 43068,
+    "section": "growth"
+  },
+  {
+    "question": "What is the growth form and rate of this grass species?",
+    "archetype": "trait_filter",
+    "doc_id": "20711::growth",
+    "species_id": 20711,
+    "section": "growth"
+  },
+  {
+    "question": "What is the bloom period for yellow bluestem?",
+    "archetype": "name_lookup",
+    "doc_id": "20711::growth",
+    "species_id": 20711,
+    "section": "growth"
+  },
+  {
+    "question": "What methods can be used to propagate a tree species?",
+    "archetype": "care_howto",
+    "doc_id": "78328::propagation",
+    "species_id": 78328,
+    "section": "propagation"
+  },
+  {
+    "question": "How can I propagate eastern redbud effectively?",
+    "archetype": "care_howto",
+    "doc_id": "78328::propagation",
+    "species_id": 78328,
+    "section": "propagation"
+  },
+  {
+    "question": "How can wheat sedge be propagated effectively?",
+    "archetype": "care_howto",
+    "doc_id": "18178::propagation",
+    "species_id": 18178,
+    "section": "propagation"
+  },
+  {
+    "question": "What is the USDA symbol for wheat sedge?",
+    "archetype": "name_lookup",
+    "doc_id": "18178::propagation",
+    "species_id": 18178,
+    "section": "propagation"
+  },
+  {
+    "question": "What is the seedling vigor of this grass species?",
+    "archetype": "trait_filter",
+    "doc_id": "23809::propagation",
+    "species_id": 23809,
+    "section": "propagation"
+  },
+  {
+    "question": "How is Italian ryegrass propagated?",
+    "archetype": "care_howto",
+    "doc_id": "23809::propagation",
+    "species_id": 23809,
+    "section": "propagation"
+  },
+  {
+    "question": "What are the methods for propagating gray goldenrod?",
+    "archetype": "care_howto",
+    "doc_id": "40070::propagation",
+    "species_id": 40070,
+    "section": "propagation"
+  },
+  {
+    "question": "How many seeds are there per pound of gray goldenrod?",
+    "archetype": "trait_filter",
+    "doc_id": "40070::propagation",
+    "species_id": 40070,
+    "section": "propagation"
+  },
+  {
+    "question": "What are the methods for propagating silvery sedge?",
+    "archetype": "care_howto",
+    "doc_id": "18269::propagation",
+    "species_id": 18269,
+    "section": "propagation"
+  },
+  {
+    "question": "How should I propagate Carex canescens?",
+    "archetype": "care_howto",
+    "doc_id": "18269::propagation",
+    "species_id": 18269,
+    "section": "propagation"
+  },
+  {
+    "question": "What methods can be used to propagate creeping barberry?",
+    "archetype": "care_howto",
+    "doc_id": "72366::propagation",
+    "species_id": 72366,
+    "section": "propagation"
+  },
+  {
+    "question": "How many seeds are there per pound for creeping barberry?",
+    "archetype": "trait_filter",
+    "doc_id": "72366::propagation",
+    "species_id": 72366,
+    "section": "propagation"
+  },
+  {
+    "question": "What are the methods for propagating greater straw sedge?",
+    "archetype": "care_howto",
+    "doc_id": "17576::propagation",
+    "species_id": 17576,
+    "section": "propagation"
+  },
+  {
+    "question": "How many plants per acre should I plant for greater straw sedge?",
+    "archetype": "trait_filter",
+    "doc_id": "17576::propagation",
+    "species_id": 17576,
+    "section": "propagation"
+  },
+  {
+    "question": "What propagation methods are recommended for plants with USDA symbol SIPE2?",
+    "archetype": "care_howto",
+    "doc_id": "39867::propagation",
+    "species_id": 39867,
+    "section": "propagation"
+  },
+  {
+    "question": "How should I propagate cup plant (Silphium perfoliatum)?",
+    "archetype": "care_howto",
+    "doc_id": "39867::propagation",
+    "species_id": 39867,
+    "section": "propagation"
+  },
+  {
+    "question": "What are the methods for propagating Kellogg's sedge?",
+    "archetype": "care_howto",
+    "doc_id": "17424::propagation",
+    "species_id": 17424,
+    "section": "propagation"
+  },
+  {
+    "question": "How many plants per acre should I plant for Kellogg's sedge?",
+    "archetype": "trait_filter",
+    "doc_id": "17424::propagation",
+    "species_id": 17424,
+    "section": "propagation"
+  },
+  {
+    "question": "What is the seedling vigor of switchgrass?",
+    "archetype": "trait_filter",
+    "doc_id": "24393::propagation",
+    "species_id": 24393,
+    "section": "propagation"
+  },
+  {
+    "question": "How is switchgrass propagated?",
+    "archetype": "care_howto",
+    "doc_id": "24393::propagation",
+    "species_id": 24393,
+    "section": "propagation"
+  },
+  {
+    "question": "How is red goosefoot propagated and established?",
+    "archetype": "care_howto",
+    "doc_id": "59003::propagation",
+    "species_id": 59003,
+    "section": "propagation"
+  },
+  {
+    "question": "What is the seedling vigor of red goosefoot?",
+    "archetype": "trait_filter",
+    "doc_id": "59003::propagation",
+    "species_id": 59003,
+    "section": "propagation"
+  },
+  {
+    "question": "What are the methods for propagating Sydney golden wattle?",
+    "archetype": "care_howto",
+    "doc_id": "76682::propagation",
+    "species_id": 76682,
+    "section": "propagation"
+  },
+  {
+    "question": "How many seeds are there per pound for Acacia longifolia?",
+    "archetype": "trait_filter",
+    "doc_id": "76682::propagation",
+    "species_id": 76682,
+    "section": "propagation"
+  },
+  {
+    "question": "What is the seedling vigor of Kentucky bluegrass?",
+    "archetype": "trait_filter",
+    "doc_id": "25028::propagation",
+    "species_id": 25028,
+    "section": "propagation"
+  },
+  {
+    "question": "How is Kentucky bluegrass propagated?",
+    "archetype": "name_lookup",
+    "doc_id": "25028::propagation",
+    "species_id": 25028,
+    "section": "propagation"
+  },
+  {
+    "question": "What is the seedling vigor of the grass species described?",
+    "archetype": "trait_filter",
+    "doc_id": "23339::propagation",
+    "species_id": 23339,
+    "section": "propagation"
+  },
+  {
+    "question": "How is porcupinegrass propagated?",
+    "archetype": "care_howto",
+    "doc_id": "23339::propagation",
+    "species_id": 23339,
+    "section": "propagation"
+  },
+  {
+    "question": "What is the recommended planting density for this plant per acre?",
+    "archetype": "trait_filter",
+    "doc_id": "64332::propagation",
+    "species_id": 64332,
+    "section": "propagation"
+  },
+  {
+    "question": "How can I propagate Rocky Mountain beeplant?",
+    "archetype": "care_howto",
+    "doc_id": "64332::propagation",
+    "species_id": 64332,
+    "section": "propagation"
+  },
+  {
+    "question": "What is the planting density for pickerelweed propagation?",
+    "archetype": "trait_filter",
+    "doc_id": "29532::propagation",
+    "species_id": 29532,
+    "section": "propagation"
+  },
+  {
+    "question": "How can I propagate pickerelweed effectively?",
+    "archetype": "care_howto",
+    "doc_id": "29532::propagation",
+    "species_id": 29532,
+    "section": "propagation"
+  },
+  {
+    "question": "How is wavy hairgrass propagated and what is its seedling vigor?",
+    "archetype": "care_howto",
+    "doc_id": "21602::propagation",
+    "species_id": 21602,
+    "section": "propagation"
+  },
+  {
+    "question": "What is the USDA symbol for wavy hairgrass?",
+    "archetype": "name_lookup",
+    "doc_id": "21602::propagation",
+    "species_id": 21602,
+    "section": "propagation"
+  },
+  {
+    "question": "What are the soil and moisture requirements for this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "32038::site",
+    "species_id": 32038,
+    "section": "site"
+  },
+  {
+    "question": "What are the climate conditions for heartleaf arnica to thrive?",
+    "archetype": "site_recommendation",
+    "doc_id": "32038::site",
+    "species_id": 32038,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and moisture requirements for this tree species?",
+    "archetype": "trait_filter",
+    "doc_id": "70526::site",
+    "species_id": 70526,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of live oak?",
+    "archetype": "trait_filter",
+    "doc_id": "70526::site",
+    "species_id": 70526,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and moisture requirements for this grass species?",
+    "archetype": "trait_filter",
+    "doc_id": "21189::site",
+    "species_id": 21189,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of northern reedgrass?",
+    "archetype": "trait_filter",
+    "doc_id": "21189::site",
+    "species_id": 21189,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and moisture requirements for this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "18330::site",
+    "species_id": 18330,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of fringed sedge?",
+    "archetype": "trait_filter",
+    "doc_id": "18330::site",
+    "species_id": 18330,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and moisture requirements for this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "18180::site",
+    "species_id": 18180,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of prickly bog sedge?",
+    "archetype": "name_lookup",
+    "doc_id": "18180::site",
+    "species_id": 18180,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and moisture requirements for growing Philadelphia fleabane?",
+    "archetype": "care_howto",
+    "doc_id": "35138::site",
+    "species_id": 35138,
+    "section": "site"
+  },
+  {
+    "question": "How tolerant is Philadelphia fleabane to drought and shade?",
+    "archetype": "trait_filter",
+    "doc_id": "35138::site",
+    "species_id": 35138,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and climate requirements for growing this plant?",
+    "archetype": "site_recommendation",
+    "doc_id": "89825::site",
+    "species_id": 89825,
+    "section": "site"
+  },
+  {
+    "question": "How drought tolerant is Ross' avens?",
+    "archetype": "trait_filter",
+    "doc_id": "89825::site",
+    "species_id": 89825,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and climate requirements for growing wild ackee?",
+    "archetype": "care_howto",
+    "doc_id": "93685::site",
+    "species_id": 93685,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of wild ackee?",
+    "archetype": "trait_filter",
+    "doc_id": "93685::site",
+    "species_id": 93685,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and climate conditions suitable for growing Illinois bundleflower?",
+    "archetype": "site_recommendation",
+    "doc_id": "78950::site",
+    "species_id": 78950,
+    "section": "site"
+  },
+  {
+    "question": "How drought tolerant is the Illinois bundleflower?",
+    "archetype": "trait_filter",
+    "doc_id": "78950::site",
+    "species_id": 78950,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and climate conditions suitable for this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "64978::site",
+    "species_id": 64978,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of pinemat manzanita?",
+    "archetype": "name_lookup",
+    "doc_id": "64978::site",
+    "species_id": 64978,
+    "section": "site"
+  },
+  {
+    "question": "What soil conditions are best for growing bog willowherb?",
+    "archetype": "trait_filter",
+    "doc_id": "85970::site",
+    "species_id": 85970,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of bog willowherb?",
+    "archetype": "trait_filter",
+    "doc_id": "85970::site",
+    "species_id": 85970,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and climate requirements for growing clover?",
+    "archetype": "site_recommendation",
+    "doc_id": "83069::site",
+    "species_id": 83069,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of small white clover?",
+    "archetype": "trait_filter",
+    "doc_id": "83069::site",
+    "species_id": 83069,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and climate requirements for growing American hazelnut?",
+    "archetype": "trait_filter",
+    "doc_id": "70074::site",
+    "species_id": 70074,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of American hazelnut?",
+    "archetype": "name_lookup",
+    "doc_id": "70074::site",
+    "species_id": 70074,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and climate conditions suitable for this plant?",
+    "archetype": "site_recommendation",
+    "doc_id": "61516::site",
+    "species_id": 61516,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of dotted smartweed?",
+    "archetype": "trait_filter",
+    "doc_id": "61516::site",
+    "species_id": 61516,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and climate conditions suitable for this plant?",
+    "archetype": "site_recommendation",
+    "doc_id": "45960::site",
+    "species_id": 45960,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance level of mintleaf bergamot?",
+    "archetype": "trait_filter",
+    "doc_id": "45960::site",
+    "species_id": 45960,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and climate requirements for growing largeflower triteleia?",
+    "archetype": "trait_filter",
+    "doc_id": "29286::site",
+    "species_id": 29286,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance of Triteleia grandiflora?",
+    "archetype": "trait_filter",
+    "doc_id": "29286::site",
+    "species_id": 29286,
+    "section": "site"
+  },
+  {
+    "question": "What are the soil and climate conditions suitable for this plant?",
+    "archetype": "site_recommendation",
+    "doc_id": "44503::site",
+    "species_id": 44503,
+    "section": "site"
+  },
+  {
+    "question": "What is the drought tolerance level of tarweed fiddleneck?",
+    "archetype": "trait_filter",
+    "doc_id": "44503::site",
+    "species_id": 44503,
+    "section": "site"
+  },
+  {
+    "question": "What are the key traits of a perennial graminoid suitable for high shade?",
+    "archetype": "trait_filter",
+    "doc_id": "20192::summary",
+    "species_id": 20192,
+    "section": "summary"
+  },
+  {
+    "question": "What is the USDA symbol for rough bentgrass?",
+    "archetype": "name_lookup",
+    "doc_id": "20192::summary",
+    "species_id": 20192,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height of this perennial herb?",
+    "archetype": "trait_filter",
+    "doc_id": "61598::summary",
+    "species_id": 61598,
+    "section": "summary"
+  },
+  {
+    "question": "Is alpine bistort tolerant of drought conditions?",
+    "archetype": "safety",
+    "doc_id": "61598::summary",
+    "species_id": 61598,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a perennial shrub that tolerates high shade?",
+    "archetype": "trait_filter",
+    "doc_id": "92963::summary",
+    "species_id": 92963,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height of smooth sumac and its bloom time?",
+    "archetype": "name_lookup",
+    "doc_id": "92963::summary",
+    "species_id": 92963,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a perennial shrub with high drought tolerance?",
+    "archetype": "trait_filter",
+    "doc_id": "89704::summary",
+    "species_id": 89704,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height of Apache plume?",
+    "archetype": "name_lookup",
+    "doc_id": "89704::summary",
+    "species_id": 89704,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height of this perennial shrub?",
+    "archetype": "trait_filter",
+    "doc_id": "67945::summary",
+    "species_id": 67945,
+    "section": "summary"
+  },
+  {
+    "question": "Is Lemmon's willow toxic to humans or pets?",
+    "archetype": "safety",
+    "doc_id": "67945::summary",
+    "species_id": 67945,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a drought-tolerant shrub or tree?",
+    "archetype": "trait_filter",
+    "doc_id": "82222::summary",
+    "species_id": 82222,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height of catclaw acacia?",
+    "archetype": "name_lookup",
+    "doc_id": "82222::summary",
+    "species_id": 82222,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a perennial shrub that tolerates drought?",
+    "archetype": "trait_filter",
+    "doc_id": "58733::summary",
+    "species_id": 58733,
+    "section": "summary"
+  },
+  {
+    "question": "What is the height and bloom season of bluegreen saltbush?",
+    "archetype": "name_lookup",
+    "doc_id": "58733::summary",
+    "species_id": 58733,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a perennial graminoid with high shade tolerance?",
+    "archetype": "trait_filter",
+    "doc_id": "19087::summary",
+    "species_id": 19087,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height of slender spikerush?",
+    "archetype": "name_lookup",
+    "doc_id": "19087::summary",
+    "species_id": 19087,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a perennial graminoid with high drought tolerance?",
+    "archetype": "trait_filter",
+    "doc_id": "23344::summary",
+    "species_id": 23344,
+    "section": "summary"
+  },
+  {
+    "question": "What is the USDA symbol for tanglehead?",
+    "archetype": "name_lookup",
+    "doc_id": "23344::summary",
+    "species_id": 23344,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a perennial subshrub that tolerates medium shade?",
+    "archetype": "trait_filter",
+    "doc_id": "90966::summary",
+    "species_id": 90966,
+    "section": "summary"
+  },
+  {
+    "question": "What is the blooming season for Woods' rose?",
+    "archetype": "name_lookup",
+    "doc_id": "90966::summary",
+    "species_id": 90966,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a drought-tolerant shrub?",
+    "archetype": "trait_filter",
+    "doc_id": "76591::summary",
+    "species_id": 76591,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height of jojoba?",
+    "archetype": "name_lookup",
+    "doc_id": "76591::summary",
+    "species_id": 76591,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a perennial graminoid suitable for medium shade?",
+    "archetype": "trait_filter",
+    "doc_id": "26717::summary",
+    "species_id": 26717,
+    "section": "summary"
+  },
+  {
+    "question": "Is longstyle rush toxic to humans or pets?",
+    "archetype": "safety",
+    "doc_id": "26717::summary",
+    "species_id": 26717,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height and shade tolerance of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "67863::summary",
+    "species_id": 67863,
+    "section": "summary"
+  },
+  {
+    "question": "Is dune willow toxic to humans or pets?",
+    "archetype": "safety",
+    "doc_id": "67863::summary",
+    "species_id": 67863,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height of this grass species?",
+    "archetype": "trait_filter",
+    "doc_id": "25760::summary",
+    "species_id": 25760,
+    "section": "summary"
+  },
+  {
+    "question": "Is big cordgrass tolerant to drought conditions?",
+    "archetype": "safety",
+    "doc_id": "25760::summary",
+    "species_id": 25760,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a perennial shrub that tolerates high shade?",
+    "archetype": "trait_filter",
+    "doc_id": "88768::summary",
+    "species_id": 88768,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height of red chokeberry?",
+    "archetype": "name_lookup",
+    "doc_id": "88768::summary",
+    "species_id": 88768,
+    "section": "summary"
+  },
+  {
+    "question": "What are the key traits of a perennial forb with high shade tolerance?",
+    "archetype": "trait_filter",
+    "doc_id": "77187::summary",
+    "species_id": 77187,
+    "section": "summary"
+  },
+  {
+    "question": "What is the USDA symbol for chickpea milkvetch?",
+    "archetype": "name_lookup",
+    "doc_id": "77187::summary",
+    "species_id": 77187,
+    "section": "summary"
+  },
+  {
+    "question": "What is the mature height of this plant species?",
+    "archetype": "trait_filter",
+    "doc_id": "16478::summary",
+    "species_id": 16478,
+    "section": "summary"
+  },
+  {
+    "question": "Is valdivia duckweed tolerant to drought conditions?",
+    "archetype": "safety",
+    "doc_id": "16478::summary",
+    "species_id": 16478,
+    "section": "summary"
+  },
+  {
+    "question": "What is the palatability of Indian ricegrass to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "19939::uses",
+    "species_id": 19939,
+    "section": "uses"
+  },
+  {
+    "question": "Is Indian ricegrass toxic to humans or animals?",
+    "archetype": "safety",
+    "doc_id": "19939::uses",
+    "species_id": 19939,
+    "section": "uses"
+  },
+  {
+    "question": "What is the recorded toxicity level of this plant?",
+    "archetype": "trait_filter",
+    "doc_id": "64947::uses",
+    "species_id": 64947,
+    "section": "uses"
+  },
+  {
+    "question": "Is whiteleaf manzanita safe for human consumption?",
+    "archetype": "safety",
+    "doc_id": "64947::uses",
+    "species_id": 64947,
+    "section": "uses"
+  },
+  {
+    "question": "What is the palatability of Drummond's willow to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "67698::uses",
+    "species_id": 67698,
+    "section": "uses"
+  },
+  {
+    "question": "Is Drummond's willow toxic to humans or animals?",
+    "archetype": "safety",
+    "doc_id": "67698::uses",
+    "species_id": 67698,
+    "section": "uses"
+  },
+  {
+    "question": "What is the recorded toxicity level of this plant?",
+    "archetype": "safety",
+    "doc_id": "68427::uses",
+    "species_id": 68427,
+    "section": "uses"
+  },
+  {
+    "question": "Is northern St. Johnswort safe for human consumption?",
+    "archetype": "safety",
+    "doc_id": "68427::uses",
+    "species_id": 68427,
+    "section": "uses"
+  },
+  {
+    "question": "What is the palatability of old man's whiskers to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "89830::uses",
+    "species_id": 89830,
+    "section": "uses"
+  },
+  {
+    "question": "Is old man's whiskers toxic to humans or animals?",
+    "archetype": "safety",
+    "doc_id": "89830::uses",
+    "species_id": 89830,
+    "section": "uses"
+  },
+  {
+    "question": "What is the palatability of garden vetch to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "83478::uses",
+    "species_id": 83478,
+    "section": "uses"
+  },
+  {
+    "question": "Is garden vetch safe for human consumption?",
+    "archetype": "safety",
+    "doc_id": "83478::uses",
+    "species_id": 83478,
+    "section": "uses"
+  },
+  {
+    "question": "What is the recorded toxicity level of this plant?",
+    "archetype": "safety",
+    "doc_id": "18609::uses",
+    "species_id": 18609,
+    "section": "uses"
+  },
+  {
+    "question": "Is yellow flatsedge palatable to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "18609::uses",
+    "species_id": 18609,
+    "section": "uses"
+  },
+  {
+    "question": "What is the palatability of meadow brome to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "20877::uses",
+    "species_id": 20877,
+    "section": "uses"
+  },
+  {
+    "question": "Is meadow brome toxic to humans or animals?",
+    "archetype": "safety",
+    "doc_id": "20877::uses",
+    "species_id": 20877,
+    "section": "uses"
+  },
+  {
+    "question": "What is the recorded toxicity level of sharpleaf penstemon?",
+    "archetype": "safety",
+    "doc_id": "51761::uses",
+    "species_id": 51761,
+    "section": "uses"
+  },
+  {
+    "question": "Is sharpleaf penstemon palatable to humans?",
+    "archetype": "safety",
+    "doc_id": "51761::uses",
+    "species_id": 51761,
+    "section": "uses"
+  },
+  {
+    "question": "What is the palatability of snowbrush ceanothus to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "87175::uses",
+    "species_id": 87175,
+    "section": "uses"
+  },
+  {
+    "question": "Is snowbrush ceanothus toxic to humans?",
+    "archetype": "safety",
+    "doc_id": "87175::uses",
+    "species_id": 87175,
+    "section": "uses"
+  },
+  {
+    "question": "What is the recorded toxicity level of this plant?",
+    "archetype": "safety",
+    "doc_id": "18401::uses",
+    "species_id": 18401,
+    "section": "uses"
+  },
+  {
+    "question": "Is star sedge palatable to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "18401::uses",
+    "species_id": 18401,
+    "section": "uses"
+  },
+  {
+    "question": "What is the palatability of this plant to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "18224::uses",
+    "species_id": 18224,
+    "section": "uses"
+  },
+  {
+    "question": "Is southwestern showy sedge safe for human consumption?",
+    "archetype": "safety",
+    "doc_id": "18224::uses",
+    "species_id": 18224,
+    "section": "uses"
+  },
+  {
+    "question": "What is the palatability of sapodilla to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "64587::uses",
+    "species_id": 64587,
+    "section": "uses"
+  },
+  {
+    "question": "Is sapodilla toxic to humans or animals?",
+    "archetype": "safety",
+    "doc_id": "64587::uses",
+    "species_id": 64587,
+    "section": "uses"
+  },
+  {
+    "question": "What is the palatability of perennial soybean to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "81391::uses",
+    "species_id": 81391,
+    "section": "uses"
+  },
+  {
+    "question": "Is perennial soybean safe for human consumption?",
+    "archetype": "safety",
+    "doc_id": "81391::uses",
+    "species_id": 81391,
+    "section": "uses"
+  },
+  {
+    "question": "What is the palatability of plains pricklypear to grazing animals?",
+    "archetype": "trait_filter",
+    "doc_id": "56921::uses",
+    "species_id": 56921,
+    "section": "uses"
+  },
+  {
+    "question": "Is plains pricklypear safe for human consumption?",
+    "archetype": "safety",
+    "doc_id": "56921::uses",
+    "species_id": 56921,
+    "section": "uses"
+  },
+  {
+    "question": "What are the palatability levels of lancewood for animals?",
+    "archetype": "trait_filter",
+    "doc_id": "71405::uses",
+    "species_id": 71405,
+    "section": "uses"
+  },
+  {
+    "question": "Is lancewood suitable for lumber and nursery stock?",
+    "archetype": "name_lookup",
+    "doc_id": "71405::uses",
+    "species_id": 71405,
+    "section": "uses"
+  },
+  {
+    "question": "What is the recorded toxicity level of this plant?",
+    "archetype": "safety",
+    "doc_id": "68232::uses",
+    "species_id": 68232,
+    "section": "uses"
+  },
+  {
+    "question": "Is netleaf willow palatable to humans?",
+    "archetype": "safety",
+    "doc_id": "68232::uses",
+    "species_id": 68232,
+    "section": "uses"
+  },
+  {
+    "question": "What resources are available for more information about Sitka spruce?",
+    "archetype": "site_recommendation",
+    "doc_id": "15398::plantguide::7",
+    "species_id": 15398,
+    "section": "plantguide"
+  },
+  {
+    "question": "What is the scientific name of Sitka spruce?",
+    "archetype": "name_lookup",
+    "doc_id": "15398::plantguide::7",
+    "species_id": 15398,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the characteristics of the bark on this tree?",
+    "archetype": "trait_filter",
+    "doc_id": "68068::plantguide::10",
+    "species_id": 68068,
+    "section": "plantguide"
+  },
+  {
+    "question": "What is the height range of the black willow tree?",
+    "archetype": "name_lookup",
+    "doc_id": "68068::plantguide::10",
+    "species_id": 68068,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the alternate common names for this tree species?",
+    "archetype": "trait_filter",
+    "doc_id": "49739::plantguide::0",
+    "species_id": 49739,
+    "section": "plantguide"
+  },
+  {
+    "question": "What is the scientific name of white ash?",
+    "archetype": "name_lookup",
+    "doc_id": "49739::plantguide::0",
+    "species_id": 49739,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the optimal growing conditions for switchgrass?",
+    "archetype": "care_howto",
+    "doc_id": "24393::plantguide::10",
+    "species_id": 24393,
+    "section": "plantguide"
+  },
+  {
+    "question": "How well does switchgrass tolerate different soil types and moisture levels?",
+    "archetype": "trait_filter",
+    "doc_id": "24393::plantguide::10",
+    "species_id": 24393,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the benefits of using strawberry clover in landscaping?",
+    "archetype": "trait_filter",
+    "doc_id": "82906::plantguide::9",
+    "species_id": 82906,
+    "section": "plantguide"
+  },
+  {
+    "question": "What is the scientific name of strawberry clover?",
+    "archetype": "name_lookup",
+    "doc_id": "82906::plantguide::9",
+    "species_id": 82906,
+    "section": "plantguide"
+  },
+  {
+    "question": "What type of climate does California oatgrass thrive in?",
+    "archetype": "trait_filter",
+    "doc_id": "21502::plantguide::17",
+    "species_id": 21502,
+    "section": "plantguide"
+  },
+  {
+    "question": "Where can I find California oatgrass growing in the wild?",
+    "archetype": "site_recommendation",
+    "doc_id": "21502::plantguide::17",
+    "species_id": 21502,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the characteristics of the leaves of this oak tree?",
+    "archetype": "trait_filter",
+    "doc_id": "70344::plantguide::1",
+    "species_id": 70344,
+    "section": "plantguide"
+  },
+  {
+    "question": "What is the flowering period for the valley oak?",
+    "archetype": "care_howto",
+    "doc_id": "70344::plantguide::1",
+    "species_id": 70344,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the ecological benefits of sago pondweed for wildlife?",
+    "archetype": "trait_filter",
+    "doc_id": "16200::plantguide::5",
+    "species_id": 16200,
+    "section": "plantguide"
+  },
+  {
+    "question": "Is sago pondweed considered a threatened species in any state?",
+    "archetype": "name_lookup",
+    "doc_id": "16200::plantguide::5",
+    "species_id": 16200,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the environmental conditions that sea oats can tolerate?",
+    "archetype": "trait_filter",
+    "doc_id": "26268::plantguide::7",
+    "species_id": 26268,
+    "section": "plantguide"
+  },
+  {
+    "question": "How do sea oats help in stabilizing sandy areas?",
+    "archetype": "care_howto",
+    "doc_id": "26268::plantguide::7",
+    "species_id": 26268,
+    "section": "plantguide"
+  },
+  {
+    "question": "What management strategies are recommended for establishing this plant community?",
+    "archetype": "care_howto",
+    "doc_id": "35631::plantguide::3",
+    "species_id": 35631,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the potential problems associated with western goldentop?",
+    "archetype": "safety",
+    "doc_id": "35631::plantguide::3",
+    "species_id": 35631,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the key traits of the superior slender wheatgrass variety?",
+    "archetype": "trait_filter",
+    "doc_id": "22615::plantguide::10",
+    "species_id": 22615,
+    "section": "plantguide"
+  },
+  {
+    "question": "How does Revenue slender wheatgrass compare to Primar?",
+    "archetype": "comparison",
+    "doc_id": "22615::plantguide::10",
+    "species_id": 22615,
+    "section": "plantguide"
+  },
+  {
+    "question": "What regions is common yarrow found in across the northern hemisphere?",
+    "archetype": "trait_filter",
+    "doc_id": "31206::plantguide::7",
+    "species_id": 31206,
+    "section": "plantguide"
+  },
+  {
+    "question": "What is the scientific name for common yarrow?",
+    "archetype": "name_lookup",
+    "doc_id": "31206::plantguide::7",
+    "species_id": 31206,
+    "section": "plantguide"
+  },
+  {
+    "question": "What is the recommended planting depth for buckwheat seeds?",
+    "archetype": "care_howto",
+    "doc_id": "61088::plantguide::5",
+    "species_id": 61088,
+    "section": "plantguide"
+  },
+  {
+    "question": "When should I plant buckwheat in North Dakota?",
+    "archetype": "site_recommendation",
+    "doc_id": "61088::plantguide::5",
+    "species_id": 61088,
+    "section": "plantguide"
+  },
+  {
+    "question": "What type of soil conditions can this plant tolerate?",
+    "archetype": "trait_filter",
+    "doc_id": "58840::plantguide::12",
+    "species_id": 58840,
+    "section": "plantguide"
+  },
+  {
+    "question": "Is Kochia suitable for arid regions and poor soil conditions?",
+    "archetype": "site_recommendation",
+    "doc_id": "58840::plantguide::12",
+    "species_id": 58840,
+    "section": "plantguide"
+  },
+  {
+    "question": "What type of information can I find on the USDA PLANTS website?",
+    "archetype": "site_recommendation",
+    "doc_id": "70362::plantguide::16",
+    "species_id": 70362,
+    "section": "plantguide"
+  },
+  {
+    "question": "What is the scientific name of the bur oak?",
+    "archetype": "name_lookup",
+    "doc_id": "70362::plantguide::16",
+    "species_id": 70362,
+    "section": "plantguide"
+  },
+  {
+    "question": "What is the recommended seeding rate for Thurber's needlegrass?",
+    "archetype": "care_howto",
+    "doc_id": "20010::plantguide::3",
+    "species_id": 20010,
+    "section": "plantguide"
+  },
+  {
+    "question": "How does Thurber's needlegrass behave as forage throughout the year?",
+    "archetype": "trait_filter",
+    "doc_id": "20010::plantguide::3",
+    "species_id": 20010,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the alternate common names for proso millet?",
+    "archetype": "trait_filter",
+    "doc_id": "24316::plantguide::0",
+    "species_id": 24316,
+    "section": "plantguide"
+  },
+  {
+    "question": "What is the scientific name of proso millet?",
+    "archetype": "name_lookup",
+    "doc_id": "24316::plantguide::0",
+    "species_id": 24316,
+    "section": "plantguide"
+  },
+  {
+    "question": "What are the recommended planting methods for black walnut seedlings?",
+    "archetype": "care_howto",
+    "doc_id": "70684::factsheet::4",
+    "species_id": 70684,
+    "section": "factsheet"
+  },
+  {
+    "question": "What pests commonly affect black walnut trees?",
+    "archetype": "trait_filter",
+    "doc_id": "70684::factsheet::4",
+    "species_id": 70684,
+    "section": "factsheet"
+  },
+  {
+    "question": "What maintenance is required for streambanks with purpleosier willow?",
+    "archetype": "care_howto",
+    "doc_id": "68221::factsheet::4",
+    "species_id": 68221,
+    "section": "factsheet"
+  },
+  {
+    "question": "How should I manage purpleosier willow on streambanks?",
+    "archetype": "care_howto",
+    "doc_id": "68221::factsheet::4",
+    "species_id": 68221,
+    "section": "factsheet"
+  },
+  {
+    "question": "What are the regrowth characteristics of the 'Melrose' variety?",
+    "archetype": "trait_filter",
+    "doc_id": "81447::factsheet::3",
+    "species_id": 81447,
+    "section": "factsheet"
+  },
+  {
+    "question": "What is the difference between 'Melrose' and 'Remont' sainfoin varieties?",
+    "archetype": "comparison",
+    "doc_id": "81447::factsheet::3",
+    "species_id": 81447,
+    "section": "factsheet"
+  },
+  {
+    "question": "What are the contact details for filing a discrimination complaint with USDA?",
+    "archetype": "trait_filter",
+    "doc_id": "32620::factsheet::3",
+    "species_id": 32620,
+    "section": "factsheet"
+  },
+  {
+    "question": "How can I contact USDA regarding bearded beggarticks?",
+    "archetype": "name_lookup",
+    "doc_id": "32620::factsheet::3",
+    "species_id": 32620,
+    "section": "factsheet"
+  },
+  {
+    "question": "What is the only variety of deertongue available for commercial production?",
+    "archetype": "trait_filter",
+    "doc_id": "21710::factsheet::4",
+    "species_id": 21710,
+    "section": "factsheet"
+  },
+  {
+    "question": "When was the 'Tioga' variety of deertongue released for commercial production?",
+    "archetype": "name_lookup",
+    "doc_id": "21710::factsheet::4",
+    "species_id": 21710,
+    "section": "factsheet"
+  },
+  {
+    "question": "What are the desirable traits of a drought-tolerant tree?",
+    "archetype": "trait_filter",
+    "doc_id": "70362::factsheet::1",
+    "species_id": 70362,
+    "section": "factsheet"
+  },
+  {
+    "question": "What is the maximum height of a bur oak tree?",
+    "archetype": "name_lookup",
+    "doc_id": "70362::factsheet::1",
+    "species_id": 70362,
+    "section": "factsheet"
+  },
+  {
+    "question": "What type of sites is bristly locust best for erosion control?",
+    "archetype": "trait_filter",
+    "doc_id": "82133::factsheet::0",
+    "species_id": 82133,
+    "section": "factsheet"
+  },
+  {
+    "question": "Is bristly locust suitable for residential landscaping?",
+    "archetype": "care_howto",
+    "doc_id": "82133::factsheet::0",
+    "species_id": 82133,
+    "section": "factsheet"
+  },
+  {
+    "question": "What are the potential uses for blue mistflower in landscaping?",
+    "archetype": "site_recommendation",
+    "doc_id": "33849::factsheet::0",
+    "species_id": 33849,
+    "section": "factsheet"
+  },
+  {
+    "question": "Is Conoclinium coelestinum considered weedy or invasive in some areas?",
+    "archetype": "safety",
+    "doc_id": "33849::factsheet::0",
+    "species_id": 33849,
+    "section": "factsheet"
+  },
+  {
+    "question": "What conditions are necessary for gray birch to thrive in a garden?",
+    "archetype": "trait_filter",
+    "doc_id": "70029::factsheet::2",
+    "species_id": 70029,
+    "section": "factsheet"
+  },
+  {
+    "question": "When is the best time to plant gray birch seedlings?",
+    "archetype": "care_howto",
+    "doc_id": "70029::factsheet::2",
+    "species_id": 70029,
+    "section": "factsheet"
+  },
+  {
+    "question": "What are the protein content levels of American beautyberry leaves throughout the year?",
+    "archetype": "trait_filter",
+    "doc_id": "46985::factsheet::1",
+    "species_id": 46985,
+    "section": "factsheet"
+  },
+  {
+    "question": "How is American beautyberry commonly used in landscaping?",
+    "archetype": "name_lookup",
+    "doc_id": "46985::factsheet::1",
+    "species_id": 46985,
+    "section": "factsheet"
+  },
+  {
+    "question": "What planting method is recommended for upland wildlife food sources?",
+    "archetype": "care_howto",
+    "doc_id": "61462::factsheet::2",
+    "species_id": 61462,
+    "section": "factsheet"
+  },
+  {
+    "question": "How should Pennsylvania smartweed be managed for waterfowl food?",
+    "archetype": "care_howto",
+    "doc_id": "61462::factsheet::2",
+    "species_id": 61462,
+    "section": "factsheet"
+  },
+  {
+    "question": "What is the grazing height recommendation for Sandberg bluegrass?",
+    "archetype": "care_howto",
+    "doc_id": "25064::factsheet::4",
+    "species_id": 25064,
+    "section": "factsheet"
+  },
+  {
+    "question": "How palatable is Sandberg bluegrass to livestock and deer?",
+    "archetype": "trait_filter",
+    "doc_id": "25064::factsheet::4",
+    "species_id": 25064,
+    "section": "factsheet"
+  },
+  {
+    "question": "What type of soil is purple lovegrass best suited for?",
+    "archetype": "trait_filter",
+    "doc_id": "22864::factsheet::2",
+    "species_id": 22864,
+    "section": "factsheet"
+  },
+  {
+    "question": "What are the characteristics of purple lovegrass seedheads?",
+    "archetype": "trait_filter",
+    "doc_id": "22864::factsheet::2",
+    "species_id": 22864,
+    "section": "factsheet"
+  },
+  {
+    "question": "What type of plant is suitable for southern states as a native forage grass?",
+    "archetype": "trait_filter",
+    "doc_id": "20561::factsheet::2",
+    "species_id": 20561,
+    "section": "factsheet"
+  },
+  {
+    "question": "What is the common name of the plant associated with the USDA factsheet?",
+    "archetype": "name_lookup",
+    "doc_id": "20561::factsheet::2",
+    "species_id": 20561,
+    "section": "factsheet"
+  },
+  {
+    "question": "What are the recommended seeding rates for meadow barley?",
+    "archetype": "care_howto",
+    "doc_id": "23393::factsheet::4",
+    "species_id": 23393,
+    "section": "factsheet"
+  },
+  {
+    "question": "How does heavy grazing affect meadow barley growth?",
+    "archetype": "trait_filter",
+    "doc_id": "23393::factsheet::4",
+    "species_id": 23393,
+    "section": "factsheet"
+  },
+  {
+    "question": "What type of soil is best for slender little bluestem growth?",
+    "archetype": "trait_filter",
+    "doc_id": "25504::factsheet::1",
+    "species_id": 25504,
+    "section": "factsheet"
+  },
+  {
+    "question": "How does grazing affect slender little bluestem management?",
+    "archetype": "care_howto",
+    "doc_id": "25504::factsheet::1",
+    "species_id": 25504,
+    "section": "factsheet"
+  },
+  {
+    "question": "What are the benefits of using cereal rye as a cover crop?",
+    "archetype": "trait_filter",
+    "doc_id": "25527::factsheet::0",
+    "species_id": 25527,
+    "section": "factsheet"
+  },
+  {
+    "question": "What is the scientific name of cereal rye?",
+    "archetype": "name_lookup",
+    "doc_id": "25527::factsheet::0",
+    "species_id": 25527,
+    "section": "factsheet"
+  }
+]
