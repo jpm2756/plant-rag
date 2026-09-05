@@ -22,6 +22,7 @@ OUT_MD = DATA_DIR / "llm_eval.md"
 def evaluate(variant: str, questions: list[dict[str, Any]]) -> dict[str, Any]:
     relevance, groundedness, citations, hallucinated = [], [], [], []
     cited_target, latency, cost = [], [], []
+    has_citation, bad_index = [], []
     for row in tqdm(questions, desc=variant):
         result = flow.ask(row["question"], prompt_variant=variant, judge=True, log=False)
         verdict = result.get("judge") or {}
@@ -33,6 +34,9 @@ def evaluate(variant: str, questions: list[dict[str, Any]]) -> dict[str, Any]:
             (s["symbol"] for s in result["sources"] if s["species_id"] == row["species_id"]), None
         )
         cited_target.append(int(bool(target_symbol and target_symbol in result["cited_symbols"])))
+        # deterministic counterparts to the judge's citation score
+        has_citation.append(int(bool(result["cited_indices"])))
+        bad_index.append(int(bool(result["citations_out_of_range"])))
         latency.append(result["latency_ms"])
         cost.append(result["cost_usd"])
     return {
@@ -41,6 +45,8 @@ def evaluate(variant: str, questions: list[dict[str, Any]]) -> dict[str, Any]:
         "relevance": round(statistics.mean(relevance), 3),
         "groundedness": round(statistics.mean(groundedness), 3),
         "citation_validity": round(statistics.mean(citations), 3),
+        "answers_with_citation": round(statistics.mean(has_citation), 3),
+        "invalid_index_rate": round(statistics.mean(bad_index), 3),
         "hallucination_rate": round(statistics.mean(hallucinated), 3),
         "cited_target_species": round(statistics.mean(cited_target), 3),
         "p50_latency_ms": int(statistics.median(latency)),
@@ -68,6 +74,8 @@ def main(sample: int = 30, seed: int = 11) -> int:
         "relevance",
         "groundedness",
         "citation_validity",
+        "answers_with_citation",
+        "invalid_index_rate",
         "hallucination_rate",
         "cited_target_species",
         "p50_latency_ms",

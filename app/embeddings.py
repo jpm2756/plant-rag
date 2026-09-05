@@ -46,6 +46,7 @@ def embed_dense(texts: Iterable[str], name: str | None = None) -> list[list[floa
     return [vector.tolist() for vector in dense_model(name).embed(list(texts))]
 
 
+@lru_cache(maxsize=512)
 def embed_dense_query(text: str, name: str | None = None) -> list[float]:
     return next(iter(dense_model(name).query_embed([text]))).tolist()
 
@@ -54,6 +55,7 @@ def embed_sparse(texts: Iterable[str], name: str | None = None):
     return list(sparse_model(name).embed(list(texts)))
 
 
+@lru_cache(maxsize=512)
 def embed_sparse_query(text: str, name: str | None = None):
     return next(iter(sparse_model(name).query_embed([text])))
 

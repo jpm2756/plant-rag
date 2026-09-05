@@ -26,11 +26,13 @@ class Settings(BaseSettings):
     dense_model: str = "BAAI/bge-small-en-v1.5"
     sparse_model: str = "Qdrant/bm25"
     rerank_model: str = "Xenova/ms-marco-MiniLM-L-6-v2"
-    retrieval_mode: str = "hybrid_rerank"
+    retrieval_mode: str = "hybrid_rerank_dual"
+    filter_mode: str = "soft"
+    use_rewrite: int = 1
     top_k: int = 5
     candidate_k: int = 30
     rrf_k: int = 60
-    prompt_variant: str = "v2"
+    prompt_variant: str = "v1"
 
     usda_api_base: str = "https://plantsservices.sc.egov.usda.gov/api"
     usda_max_workers: int = 4
