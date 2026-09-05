@@ -9,8 +9,15 @@ import requests
 import streamlit as st
 
 API_URL = os.environ.get("API_URL", "http://localhost:8000")
-MODES = ["hybrid_rerank", "hybrid", "dense", "sparse"]
-VARIANTS = ["v2", "v1", "v3"]
+MODES = [
+    "hybrid_rerank_dual",
+    "hybrid_rerank",
+    "hybrid_rerank_norewrite",
+    "hybrid",
+    "dense",
+    "sparse",
+]
+VARIANTS = ["v1", "v2", "v3"]
 
 st.set_page_config(page_title="PlantRAG — USDA plant assistant", page_icon="🌿", layout="wide")
 

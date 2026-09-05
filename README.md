@@ -145,8 +145,8 @@ API:
 ```bash
 curl -s localhost:8000/ask -H 'content-type: application/json' -d '{
   "question": "Shade-tolerant native shrubs under 6 feet for acidic soil",
-  "retrieval_mode": "hybrid_rerank",
-  "prompt_variant": "v2"
+  "retrieval_mode": "hybrid_rerank_dual",
+  "prompt_variant": "v1"
 }' | jq '{answer, rewritten_query, filters, sources: [.sources[] | {title, section, arms}]}'
 
 curl -s localhost:8000/feedback -H 'content-type: application/json' \
@@ -187,15 +187,49 @@ sections and asks `gpt-4o-mini` for questions each document uniquely answers —
 trait-only phrasing (no species name) and one naming the species — tagged with an archetype.
 The source `doc_id` is the relevant item.
 
-`make eval-retrieval` scores five configurations with hit-rate@5, MRR@5 and a species-level
-hit rate (a different section of the right species is still useful):
+`make eval-retrieval` scores each configuration with hit-rate@5, MRR@5 and a species-level
+hit rate (a different section of the right species is still useful). Full corpus, n=238:
 
-> **Not yet run on the full corpus** — `make ground-truth && make eval-retrieval` fills this in
-> (`data/retrieval_eval.md`). `hybrid_rerank` is the shipped default pending those numbers.
+| mode | hit-rate@5 | MRR@5 | species hit-rate@5 |
+| --- | --- | --- | --- |
+| `sparse` | 0.433 | 0.356 | 0.626 |
+| `dense` | 0.445 | 0.402 | 0.605 |
+| `hybrid` | 0.445 | 0.406 | 0.634 |
+| `hybrid_rerank` | 0.483 | 0.424 | 0.651 |
+| `hybrid_rerank_norewrite` | **0.622** | **0.567** | **0.744** |
 
-Results are written to `data/retrieval_eval.md` / `.json`, including hit-rate broken down by
-query archetype (name lookups vs trait filters vs site recommendations behave very
-differently — that breakdown is the actionable part).
+Hit-rate by query archetype:
+
+| mode | care_howto | comparison | name_lookup | safety | site_recommendation | trait_filter |
+| --- | --- | --- | --- | --- | --- | --- |
+| `sparse` | 0.540 | 0.500 | 0.633 | 0.630 | 0.231 | 0.282 |
+| `dense` | 0.757 | 0.500 | 0.551 | 0.481 | 0.308 | 0.300 |
+| `hybrid` | 0.622 | 0.500 | 0.612 | 0.518 | 0.308 | 0.309 |
+| `hybrid_rerank` | 0.676 | 0.500 | 0.673 | 0.593 | 0.385 | 0.318 |
+| `hybrid_rerank_norewrite` | 0.892 | 1.000 | 0.735 | 0.741 | 0.462 | 0.464 |
+
+What the numbers say:
+
+- **Hybrid > either arm alone, and re-ranking > hybrid** — both best-practice stages pay for
+  themselves, and dense wins on paraphrased care questions while sparse wins on name lookups,
+  which is the duality hybrid exists for.
+- **Rewriting hurt retrieval** (0.483 → 0.622 without it). The gap is concentrated in the
+  filtered archetypes (`trait_filter` 0.318 → 0.464, `site_recommendation` 0.385 → 0.462),
+  because the rewrite path also applies the extracted metadata filters and one over-eager
+  filter removes the target document entirely. Two fixes followed: filters are now
+  **sanitised** (empty objects, unknown fields and out-of-vocabulary values dropped; hardiness
+  zone → `temp_min_f` bound; soil pH → containment test on `ph_min`/`ph_max`) and applied
+  **softly** by default (`FILTER_MODE=soft` fuses the filtered and unfiltered arms so a filter
+  boosts instead of gates), and `hybrid_rerank_dual` fuses the raw question with the rewritten
+  query so the lexical signal survives expansion.
+- **Caveat on the ablation:** ground-truth questions are generated *from* the document text, so
+  raw phrasings are lexically closer to their source document than a real user's would be —
+  part of the no-rewrite gain is eval bias, which is why the rewrite is kept as a fused arm
+  rather than deleted.
+- Document-level hit-rate understates quality: five sections of the same species are near
+  duplicates, so the species-level rate (0.744) is the more honest ceiling.
+
+Results are written to `data/retrieval_eval.md` / `.json`.
 
 ## LLM evaluation
 
@@ -208,8 +242,26 @@ mechanical check of whether the *target* species was actually cited, and cost & 
   "constraint not covered" and insufficient-data branches.
 - **v3** — answer + attribute comparison table + caveats section.
 
-> **Not yet run** — `make eval-llm` fills this in (`data/llm_eval.md`). `v2` is the shipped
-> default pending those numbers.
+n=30 sampled questions, judge = `gpt-4o-mini`:
+
+| variant | relevance | groundedness | citation_validity | hallucination_rate | cited_target_species | p50_latency_ms | avg_cost_usd |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `v1` | **5.00** | **5.00** | 1.77 | **0.00** | **0.80** | 5992 | 0.000295 |
+| `v2` | 4.60 | 4.60 | 1.97 | 0.10 | 0.767 | 5933 | 0.000335 |
+| `v3` | 4.73 | 4.73 | 1.17 | 0.067 | 0.767 | 6348 | 0.000372 |
+
+`v1` ships (`PROMPT_VARIANT=v1`): perfect relevance and groundedness with no hallucinations,
+and the cheapest of the three. The elaborate formats cost accuracy — `v2`'s mandated
+per-species bullets invite claims the context does not support (0.10 hallucination rate) and
+`v3`'s table is the worst-cited of all.
+
+Citation validity was weak across the board (1.2–2.0 of 5) while 80% of answers still cited
+the target species, i.e. the citations existed but did not line up with the numbered context.
+Three changes address it: every prompt now demands a `[n]` on each claim-bearing line and
+forbids the `[1, 2]` form, the context header carries the USDA symbol and the item count so
+the model has an unambiguous mapping, and the judge rubric spells out what 1–5 mean (previously
+it graded an under-specified instruction). `answers_with_citation` and `invalid_index_rate` are
+now reported alongside the judge score as deterministic checks that cannot drift with the judge.
 
 Results in `data/llm_eval.md` / `.json`; the winner is set via `PROMPT_VARIANT`.
 
@@ -254,8 +306,10 @@ All settings come from `.env` (see `.env.example`); the notable ones:
 | --- | --- | --- |
 | `OPENAI_API_KEY` | — | required |
 | `OPENAI_MODEL` / `OPENAI_JUDGE_MODEL` | `gpt-4o-mini` | generation / judging |
-| `RETRIEVAL_MODE` | `hybrid_rerank` | `sparse`, `dense`, `hybrid`, `hybrid_rerank` |
-| `PROMPT_VARIANT` | `v2` | answer prompt |
+| `RETRIEVAL_MODE` | `hybrid_rerank_dual` | `sparse`, `dense`, `hybrid`, `hybrid_rerank`, `hybrid_rerank_norewrite`, `hybrid_rerank_dual` |
+| `FILTER_MODE` | `soft` | `soft` fuses filtered + unfiltered arms, `hard` gates on the filter |
+| `USE_REWRITE` | `1` | query rewriting + filter extraction on/off |
+| `PROMPT_VARIANT` | `v1` | answer prompt |
 | `TOP_K` / `CANDIDATE_K` / `RRF_K` | `5` / `30` / `60` | context size, per-arm candidates, RRF constant |
 | `DENSE_MODEL` / `SPARSE_MODEL` / `RERANK_MODEL` | bge-small / bm25 / MiniLM cross-encoder | local ONNX models, no embedding API cost |
 | `INGEST_LIMIT` | `0` (all) | ingest a slice for a fast demo |

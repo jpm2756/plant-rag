@@ -11,7 +11,14 @@ from app.config import get_settings
 from app.retrieval import retrieve
 
 INSUFFICIENT = "does not contain enough information"
-CITATION_RE = re.compile(r"\[(\d+)\]")
+# accepts [1], [1][2] and the [1, 2] form models produce despite being told not to
+CITATION_RE = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
+
+
+def _cited_indices(text: str) -> list[int]:
+    return sorted(
+        {int(part) for group in CITATION_RE.findall(text) for part in group.split(",") if part}
+    )
 
 
 def _tool_context(question: str, plan: dict[str, Any]) -> tuple[list[dict[str, Any]], list[str]]:
@@ -19,7 +26,12 @@ def _tool_context(question: str, plan: dict[str, Any]) -> tuple[list[dict[str, A
     used: list[str] = []
     blocks: list[dict[str, Any]] = []
     filters = plan.get("filters") or {}
-    numeric = {k: v for k, v in filters.items() if isinstance(v, dict)}
+    # numeric predicates and multi-constraint site/trait questions are what vector search is
+    # worst at, so hand those to SQL as well
+    exact_worthy = filters and (
+        any(isinstance(v, dict) for v in filters.values())
+        or plan.get("archetype") in ("trait_filter", "site_recommendation")
+    )
 
     if plan.get("archetype") == "name_lookup":
         result = tools.lookup_species(plan.get("rewritten") or question)
@@ -30,13 +42,17 @@ def _tool_context(question: str, plan: dict[str, Any]) -> tuple[list[dict[str, A
                     "title": "Exact name lookup (USDA structured record)",
                     "section": "tool:lookup_species",
                     "text": _render_rows(result["matches"]),
-                    "payload": {"tool": "lookup_species", "in_corpus": result["in_corpus"]},
+                    "payload": {
+                        "tool": "lookup_species",
+                        "in_corpus": result["in_corpus"],
+                        "symbols": _symbols(result["matches"]),
+                    },
                     "species_id": None,
                     "score": None,
                     "arms": ["tool"],
                 }
             )
-    if numeric:
+    if exact_worthy:
         result = tools.filter_species(filters)
         used.append("filter_species")
         if result["matches"]:
@@ -45,13 +61,21 @@ def _tool_context(question: str, plan: dict[str, Any]) -> tuple[list[dict[str, A
                     "title": f"Exact trait filter {filters}",
                     "section": "tool:filter_species",
                     "text": _render_rows(result["matches"]),
-                    "payload": {"tool": "filter_species", "n": result["n"]},
+                    "payload": {
+                        "tool": "filter_species",
+                        "n": result["n"],
+                        "symbols": _symbols(result["matches"]),
+                    },
                     "species_id": None,
                     "score": None,
                     "arms": ["tool"],
                 }
             )
     return blocks, used
+
+
+def _symbols(rows: list[dict[str, Any]]) -> list[str]:
+    return [row["symbol"] for row in rows if row.get("symbol")]
 
 
 def _render_rows(rows: list[dict[str, Any]]) -> str:
@@ -85,13 +109,15 @@ def ask(
     question: str,
     mode: str | None = None,
     prompt_variant: str | None = None,
-    use_rewrite: bool = True,
+    use_rewrite: bool | None = None,
     use_tools: bool = True,
     judge: bool = False,
     log: bool = True,
 ) -> dict[str, Any]:
     settings = get_settings()
     mode = mode or settings.retrieval_mode
+    if use_rewrite is None:
+        use_rewrite = bool(settings.use_rewrite)
     started = time.perf_counter()
 
     rewrite_ms = 0
@@ -102,7 +128,12 @@ def ask(
         plan, rewrite_meta = llm.rewrite_query(question)
         rewrite_ms = int((time.perf_counter() - stage) * 1000)
 
-    retrieved = retrieve(plan["rewritten"], mode=mode, filters=plan.get("filters") or None)
+    retrieved = retrieve(
+        plan["rewritten"],
+        mode=mode,
+        filters=plan.get("filters") or None,
+        extra_queries=[question],
+    )
     hits = retrieved["hits"]
 
     tool_blocks, tools_used = ([], [])
@@ -114,12 +145,16 @@ def ask(
     text, answer_meta = llm.answer(question, context, variant=prompt_variant)
     generate_ms = int((time.perf_counter() - stage) * 1000)
 
-    cited = sorted({int(n) for n in CITATION_RE.findall(text)})
-    cited_symbols = [
-        (context[i - 1].get("payload") or {}).get("symbol")
-        for i in cited
-        if 0 < i <= len(context) and (context[i - 1].get("payload") or {}).get("symbol")
-    ]
+    cited = _cited_indices(text)
+    cited_symbols: list[str] = []
+    for index in cited:
+        if not 0 < index <= len(context):
+            continue
+        payload = context[index - 1].get("payload") or {}
+        # a cited tool block stands for every species it listed
+        found = [payload["symbol"]] if payload.get("symbol") else payload.get("symbols") or []
+        cited_symbols += [s for s in found if s not in cited_symbols]
+    out_of_range = [i for i in cited if not 0 < i <= len(context)]
     total_ms = int((time.perf_counter() - started) * 1000)
     cost = float(rewrite_meta.get("cost_usd", 0.0)) + float(answer_meta.get("cost_usd", 0.0))
 
@@ -134,6 +169,9 @@ def ask(
         "model": answer_meta.get("model"),
         "answer": text,
         "cited_symbols": cited_symbols,
+        "cited_indices": cited,
+        "n_context": len(context),
+        "citations_out_of_range": out_of_range,
         "tools_used": tools_used,
         "n_results": len(hits),
         "insufficient": INSUFFICIENT in text.lower(),
@@ -171,6 +209,7 @@ def ask(
         result["judge"] = verdict
         result["judge_relevance"] = verdict.get("relevance")
         result["judge_groundedness"] = verdict.get("groundedness")
+        result["judge_citation_validity"] = verdict.get("citation_validity")
         result["judge_hallucinated"] = verdict.get("hallucinated")
 
     if log:

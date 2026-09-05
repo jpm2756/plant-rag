@@ -7,6 +7,7 @@ dense                     bge-small only
 hybrid                    sparse + dense fused with RRF
 hybrid_rerank             + cross-encoder re-ranking
 hybrid_rerank_norewrite   same as above but the raw question is used (rewriting ablation)
+hybrid_rerank_dual        raw question AND rewritten query fused (keeps both signals)
 
 Metrics: hit-rate@k and MRR@k on the exact document, plus a species-level hit rate
 (a different section of the right species is still a useful retrieval).
@@ -52,7 +53,9 @@ def evaluate(mode: str, questions: list[dict[str, Any]], rewrites, top_k: int) -
         else:
             plan = rewrites[row["question"]]
             query, filters = plan["rewritten"], plan.get("filters") or None
-        result = retrieve(query, mode=mode, filters=filters, top_k=top_k)
+        result = retrieve(
+            query, mode=mode, filters=filters, top_k=top_k, extra_queries=[row["question"]]
+        )
         doc_ids = [h["doc_id"] for h in result["hits"]]
         species_ids = [h["species_id"] for h in result["hits"]]
         hit = row["doc_id"] in doc_ids

@@ -19,7 +19,7 @@ class AskRequest(BaseModel):
     question: str = Field(min_length=3)
     retrieval_mode: str | None = None
     prompt_variant: str | None = None
-    use_rewrite: bool = True
+    use_rewrite: bool | None = None
     use_tools: bool = True
     judge: bool = False
 
@@ -40,6 +40,9 @@ def stats() -> dict[str, Any]:
     settings = get_settings()
     payload: dict[str, Any] = {
         "retrieval_mode": settings.retrieval_mode,
+        "retrieval_modes": list(MODES),
+        "filter_mode": settings.filter_mode,
+        "use_rewrite": bool(settings.use_rewrite),
         "prompt_variant": settings.prompt_variant,
         "model": settings.openai_model,
         "dense_model": settings.dense_model,
