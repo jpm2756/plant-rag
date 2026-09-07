@@ -4,74 +4,89 @@
     {
       "mode": "sparse",
       "n": 238,
-      "hit_rate@5": 0.4328,
-      "mrr@5": 0.3564,
-      "species_hit_rate@5": 0.6261,
+      "hit_rate@5": 0.4958,
+      "mrr@5": 0.3902,
+      "species_hit_rate@5": 0.6807,
       "per_archetype": {
-        "care_howto": 0.5405,
+        "care_howto": 0.6486,
         "comparison": 0.5,
-        "name_lookup": 0.6327,
-        "safety": 0.6296,
+        "name_lookup": 0.6531,
+        "safety": 0.7778,
         "site_recommendation": 0.2308,
-        "trait_filter": 0.2818
+        "trait_filter": 0.3364
       }
     },
     {
       "mode": "dense",
       "n": 238,
-      "hit_rate@5": 0.4454,
-      "mrr@5": 0.4023,
-      "species_hit_rate@5": 0.605,
+      "hit_rate@5": 0.4874,
+      "mrr@5": 0.4216,
+      "species_hit_rate@5": 0.6555,
       "per_archetype": {
-        "care_howto": 0.7568,
+        "care_howto": 0.7838,
         "comparison": 0.5,
         "name_lookup": 0.551,
-        "safety": 0.4815,
-        "site_recommendation": 0.3077,
-        "trait_filter": 0.3
+        "safety": 0.5926,
+        "site_recommendation": 0.3846,
+        "trait_filter": 0.3455
       }
     },
     {
       "mode": "hybrid",
       "n": 238,
-      "hit_rate@5": 0.4454,
-      "mrr@5": 0.4062,
-      "species_hit_rate@5": 0.6345,
+      "hit_rate@5": 0.4706,
+      "mrr@5": 0.4191,
+      "species_hit_rate@5": 0.6765,
       "per_archetype": {
-        "care_howto": 0.6216,
+        "care_howto": 0.6486,
         "comparison": 0.5,
-        "name_lookup": 0.6122,
-        "safety": 0.5185,
-        "site_recommendation": 0.3077,
-        "trait_filter": 0.3091
+        "name_lookup": 0.5714,
+        "safety": 0.6667,
+        "site_recommendation": 0.2308,
+        "trait_filter": 0.3455
       }
     },
     {
       "mode": "hybrid_rerank",
       "n": 238,
-      "hit_rate@5": 0.4832,
-      "mrr@5": 0.4237,
-      "species_hit_rate@5": 0.6513,
+      "hit_rate@5": 0.5168,
+      "mrr@5": 0.4653,
+      "species_hit_rate@5": 0.6975,
       "per_archetype": {
-        "care_howto": 0.6757,
+        "care_howto": 0.7568,
         "comparison": 0.5,
-        "name_lookup": 0.6735,
-        "safety": 0.5926,
-        "site_recommendation": 0.3846,
-        "trait_filter": 0.3182
+        "name_lookup": 0.6122,
+        "safety": 0.7037,
+        "site_recommendation": 0.4615,
+        "trait_filter": 0.3545
       }
     },
     {
       "mode": "hybrid_rerank_norewrite",
       "n": 238,
-      "hit_rate@5": 0.6218,
-      "mrr@5": 0.5669,
+      "hit_rate@5": 0.6261,
+      "mrr@5": 0.5677,
       "species_hit_rate@5": 0.7437,
       "per_archetype": {
         "care_howto": 0.8919,
         "comparison": 1,
         "name_lookup": 0.7347,
-        "safety": 0.7407,
+        "safety": 0.7778,
+        "site_recommendation": 0.4615,
+        "trait_filter": 0.4636
+      }
+    },
+    {
+      "mode": "hybrid_rerank_dual",
+      "n": 238,
+      "hit_rate@5": 0.6261,
+      "mrr@5": 0.5674,
+      "species_hit_rate@5": 0.7437,
+      "per_archetype": {
+        "care_howto": 0.8919,
+        "comparison": 1,
+        "name_lookup": 0.7347,
+        "safety": 0.7778,
         "site_recommendation": 0.4615,
         "trait_filter": 0.4636
       }
